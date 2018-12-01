@@ -1,6 +1,6 @@
 
 
-if ( require.main==module ) 
+if ( require.main == module ) 
 {
     var frequencyOffsets = readFrequencyOffsetsFromFile()
     var sum = calculateSum(frequencyOffsets)
@@ -23,12 +23,11 @@ function calculateSum( elements )
 
 function getFirstFrequencyDuplicate( frequencyOffsets ) 
 {
-    // console.log(frequencyOffsets)
     var previousFrequencies = [0]
     for ( let i = 0; ; i = (i + 1) % frequencyOffsets.length )
     {
         let nextOffset = frequencyOffsets[i]        
-        let nextFrequency = + previousFrequencies[ previousFrequencies.length -1 ] + +nextOffset
+        let nextFrequency = previousFrequencies[ previousFrequencies.length -1 ] + nextOffset
         if ( previousFrequencies.includes(nextFrequency) )
         {
             return nextFrequency
